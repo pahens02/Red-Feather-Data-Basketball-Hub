@@ -1,6 +1,3 @@
-import React from 'react';
-import Link from 'next/link';
-
 // interface LayoutProps {
 //   children: React.ReactNode;
 // }
@@ -67,7 +64,8 @@ import Link from 'next/link';
 //     </html>
 //   )
 // }
-
+import React from 'react';
+import Link from 'next/link';
 import './globals.css'
 
 export const metadata = {
@@ -83,9 +81,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="min-h-screen bg-background flex flex-col items-center">
+        <div>
+        <main className="min-h-screen bg-background flex">
           {children}
         </main>
+        </div>
       </body>
     </html>
   )

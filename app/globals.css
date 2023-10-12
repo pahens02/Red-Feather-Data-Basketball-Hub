@@ -11,8 +11,8 @@ body {
   --custom-color-hover-secondary: #8A8D8F;
   --custom-color-brand-secondary: #FDB913;
   --custom-color-secondary: #ffffff;
-  --custom-border: 1px solid #8A8D8F;
-  --custom-border-radius: 5px;
+  --custom-border: 1px solid #000000;
+  --custom-border-radius: 10px;
   --custom-spacing: 5px;
 
   padding: 0;
@@ -33,6 +33,11 @@ body,
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
+}
+
+.base {
+  height: 100vh;
+  width: 100vw;
 }
 
 /* Grid */
@@ -227,6 +232,9 @@ input[disabled] {
 .flex-center {
   justify-content: center;
 }
+flex.flex-center {
+  justify-content: center;
+}
 .items-center {
   align-items: center;
 }
@@ -258,7 +266,8 @@ button,
   cursor: pointer;
   text-align: center;
   font-size: 0.9rem;
-  text-transform: uppercase;
+  margin-right: 5px;
+  /* text-transform: uppercase; */
 }
 
 .button:hover {
@@ -309,65 +318,169 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   height: auto;
 }
 
-.user {
-  position: fixed;
-  top: 0;
-  right: 0;
-  padding: 10px;
-  z-index: 1000; /* Optional: to ensure the user info stays on top of other elements */
-}
-
 
 /* Navigation */
 .navigation {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
   display: flex;
-  gap: 20px; /* Adjust as needed */
+  align-items: center;
+  /* flex-direction: row; */
+  /* gap: 20px; Adjust as needed */
   background-color: var(--custom-color-brand);
+  text-transform: uppercase;
+  padding: 0 20px;  /* Added padding */
 }
 
 .navigation a {
   color: var(--custom-color); /* Adjust as needed */
   text-decoration: none;
+  /* margin: 10px; */
+  color: var(--custom-color-secondary);
 }
+
+.navigation h2 a {
+  color: var(--custom-color); /* Adjust as needed */
+  text-decoration: none;
+  margin: 15px;
+  color: var(--custom-color-secondary);
+  font-size: clamp(12px, 2vw, 30px); /* min, preferred, max */
+}
+
 
 .navigation a:hover {
   color: var(--custom-color); /* Adjust as needed */
 }
 
+.menu {
+  display: flex;
+  justify-content: space-evenly;
+  flex-grow: 1;  /* Added flex-grow */
+}
+
+.spacer {
+  flex-grow: 2;  /* New spacer div with flex-grow */
+}
+
+.user {
+  display: flex;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Added to vertically center the image */
+  flex-grow: 1;
+  background: linear-gradient(to bottom, var(--custom-color-brand), var(--custom-color-secondary)), url('/images/mens_basket_banner.png') center/cover no-repeat;
+  /* border-top: var(--custom-border); */
+  overflow: hidden;
+  padding-top: 85px; /* This padding might not be necessary anymore */
+}
+
+.below-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 20px; /* Adjust this value to create space below the fixed navigation bar */
+}
+
+.parent-container, .parent-container-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Main Content */
+.main-content-column {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  justify-content: space-evenly;
+  padding: 20px;
+  width: 100%;
+}
+
+.main-content-row {
+  display: flex;
+  flex-wrap: wrap; /* This will allow the content to wrap onto the next line on smaller screens */
+  justify-content: center;
+  width: 100%;
+  max-width: 880px;
+  margin-bottom: 20px; /* Creates space between this row and the next content area */
+}
+
+.content-area {
+  padding: 20px;
+  margin: 10px;
+  border-radius: var(--custom-border-radius);
+  box-sizing: border-box;
+  width: 100%; /* Ensures full width usage */
+  max-width: 1000px; /* You can adjust this value */
+}
+
+.content-area-1 {
+  background-color: var(--custom-color-brand);
+}
+
+
 /* Search Bar */
 .search-bar {
   display: flex;
   gap: 15px; /* Adjust as needed */
+  max-width: 500px;
 }
 
 .search-bar input {
   flex-grow: 2;
 }
 
-/* Table */
-.table {
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Adjust as needed */
+}
+
+/* Table Headers */
+.table .header-cell div {
+  background-color: var(--custom-color-brand);
   color: var(--custom-color-secondary);
+  padding: 10px;
+  text-transform: uppercase;
   border: var(--custom-border);
-  border-width: 3px;
-  /* background-color: var(--custom-color-brand); */
+}
+
+/* Table Data */
+.table .cell div {
+  padding: 10px;
+  border: var(--custom-border);
+}
+
+/* Zebra Striping for rows */
+.table .cell:nth-child(even) div {
+  background-color: var(--custom-panel-color);
+}
+
+/* Hover Effect */
+.table .cell:hover div {
+  background-color: var(--custom-color-hover);
+  color: var(--custom-color-secondary);
+  transition: background-color 0.3s ease;
+}
+
+/* Adjustments for the first column to align the text to the left */
+.table .cell:first-child,
+.table .header-cell:first-child {
   text-align: left;
-}
-
-.tbody {
-  background: var(--custom-color-brand);
-}
-/* Main Content */
-.main-content {
-  flex-grow: 1;
-  padding: 20px; /* Adjust as needed */
-}
-
-
-/* Featured Content, Recent Results, Team Rankings */
-.featured-content,
-.recent-results,
-.team-rankings {
-  margin-bottom: 20px; /* Adjust as needed */
 }
 
 /* News Updates in Footer */
@@ -399,14 +512,8 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   border-radius: 5px;
 }
 
-.navigation a {
-  margin: 0 10px;
-  color: white;
-  text-decoration: none;
-}
-
 .footer {
-  position: absolute;
+  position: fixed;
   max-width: 100%;
   bottom: 0;
   left: 0;
@@ -431,6 +538,13 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
 }
 .footer > div:nth-child(2) {
   justify-content: left;
+}
+
+@media (max-width: 768px) {
+  .main-content-row {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media only screen and (min-width: 60em) {
