@@ -79,9 +79,8 @@ export default function AccountForm({ session }: { session: Session | null }) {
   }
 
   return (
-    <body>
+    <div className='base'>
       <div className='parent-container'>
-        <div className='main-content-row'>
           <div className="form-widget">
             <Avatar
               uid={user!.id}
@@ -143,6 +142,5 @@ export default function AccountForm({ session }: { session: Session | null }) {
           </div>
         </div>
       </div>
-    </body>
   )
 }

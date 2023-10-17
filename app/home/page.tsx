@@ -1,6 +1,7 @@
 import '../globals.css';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
+import NavBar from '../components/NavBar';
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
@@ -14,42 +15,9 @@ export default async function Home() {
   } = await supabase.auth.getUser()
 
   return (
-    <div>
-      <body>
+    <div className='base'>
       {/* Navigation Bar */}
-      <nav className="navigation">
-        <div className='menu'>
-          <h2><a className="hover:text-[var(--custom-color-hover)]" href="#">Schedule</a></h2>
-          <h2><a className="hover:text-[var(--custom-color-hover)]" href="#">Roster</a></h2>
-          <h2><a className="hover:text-[var(--custom-color-hover)]" href="#">Games</a></h2>
-          <h2><a className="hover:text-[var(--custom-color-hover)]" href="#">Practice</a></h2>
-          <h2><a className="hover:text-[var(--custom-color-hover)]" href="#">Analytics</a></h2>
-          <h2><a className="hover:text-[var(--custom-color-hover)]" href="#">Guidlines</a></h2>
-        </div>
-          <div className="user">
-            {user ? (
-              <div className="text-[var(--btn-foreground)] bg-[var(--btn-background)] hover:bg-[var(--btn-background-hover)] flex items-center space-x-2">
-                <Link href="/account">
-                  <button className="button" type="submit"> 
-                    Hey, {user.email}!
-                  </button>
-                </Link>
-                <form action="/auth/signout" method="post">
-                  <button className="button" type="submit">
-                    Sign out
-                  </button>
-                </form>
-              </div>
-            ) : (
-              //remove at some point
-              <Link 
-                href="/login"
-                className="py-2 px-4 rounded-md no-underline text-[var(--btn-foreground)] bg-[var(--btn-background)] hover:bg-[var(--btn-background-hover)]">
-                  Login
-              </Link>
-            )}
-          </div>
-      </nav>
+      <NavBar user={user} />
       {/* Banner Image */}
       <div className="banner">
         <img src="/images/mens_basket_banner.png" alt="Men's Basketball Banner" />
@@ -104,7 +72,6 @@ export default async function Home() {
          
         </section>
       </footer>
-      </body>
     </div>
   )
 }

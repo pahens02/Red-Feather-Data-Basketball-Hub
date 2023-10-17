@@ -392,6 +392,10 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   padding-top: 20px; /* Adjust this value to create space below the fixed navigation bar */
 }
 
+.below-bar.no-banner {
+  padding-top: 100px; /* Adjust this value to create space below the fixed navigation bar */
+}
+
 .parent-container, .parent-container-2 {
   display: flex;
   flex-direction: column;
@@ -433,6 +437,45 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   background-color: var(--custom-color-brand);
 }
 
+.left-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-image img {
+  width: 100%;
+  max-width: 200px;
+}
+
+.right-content {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.entries {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: var(--custom-border);
+  width: 100%;
+  max-width: 880px;
+}
+
+.entry {
+  margin: 10px;
+}
+
+.new-medical-info {
+  margin-top: 10px;
+  background-color: var(--custom-color);
+  color: var(--custom-bg-color);
+  border: none;
+  padding: 10px 20px;
+}
 
 /* Search Bar */
 .search-bar {
@@ -448,6 +491,11 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Adjust as needed */
+}
+
+.grid.grid-cols-6 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Adjust as needed */
 }
 
 /* Table Headers */
@@ -594,6 +642,7 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
 }
 
 .form-widget {
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 20px;
