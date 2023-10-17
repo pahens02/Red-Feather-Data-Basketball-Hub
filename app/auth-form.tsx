@@ -22,15 +22,11 @@ export default function AuthForm() {
       }
     );
 
-    // return () => {
-    //   authListener.unsubscribe();
-    // };
   }, []);
 
   return (
     <Auth
       supabaseClient={supabase}
-      // view="magic_link"
       appearance={{ theme: ThemeSupa }}
       theme="dark"
       showLinks={false}
