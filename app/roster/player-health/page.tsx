@@ -10,6 +10,8 @@ import PlayerHealthDetails from '../../components/PlayerHealthDetails';  // Impo
 
 import { withRouter, NextRouter } from 'next/router';
 
+export const dynamic = 'force-dynamic'
+
 interface Player {
   id: number;
   full_name: string;
