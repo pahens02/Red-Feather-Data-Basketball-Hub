@@ -531,6 +531,16 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   text-align: left;
 }
 
+.table a {
+  text-decoration: none;
+}
+
+.table a:hover {
+  text-decoration: underline;
+  color: var(--custom-bg-color);
+}
+
+
 /* News Updates in Footer */
 .news-updates {
   padding: 20px; /* Adjust as needed */
