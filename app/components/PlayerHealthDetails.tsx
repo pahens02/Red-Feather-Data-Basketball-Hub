@@ -23,8 +23,8 @@ function PlayerHealthDetails({ player }: { player: Player | null }) {
     return (
       <div className='player-details'>
         <h2>{player.full_name}</h2>
-        <p>{player.position}</p>
-        <p>{player.year}</p>
+        <p>Position: {player.position}</p>
+        <p>Year: {player.year}</p>
       </div>
     );
   }

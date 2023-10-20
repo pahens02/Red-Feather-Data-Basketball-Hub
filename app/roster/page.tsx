@@ -4,6 +4,7 @@ import { cookies } from 'next/headers'
 import NavBar from '../components/NavBar';
 import Link from 'next/link'
 
+
 export const dynamic = 'force-dynamic'
 
 export default async function RosterPage () {
@@ -21,7 +22,11 @@ export default async function RosterPage () {
         <div className="below-bar no-banner">
           <div className="parent-container">
             <div className='content-area content-area-2'>
-              <h2 className="text-lg font-bold text-center">2023-24 Men's Basketball Roster</h2>
+                <div className="search-bar">
+                    <input type="text" placeholder="Search players" />
+                  <button className="button" type="submit">Search</button>
+                </div>
+            <h2 className="text-lg font-bold text-center">2023-24 Men&apos;s Basketball Roster</h2>
               <div className="table w-full">
                 {/* Headers Section */}
                 <div className="grid grid-cols-6 header-cell"> {/* Adjust grid column count */}
@@ -34,18 +39,23 @@ export default async function RosterPage () {
                 </div>
 
                 {/* Players Data Section */}
-                {players?.map((player, index) => (
-                  <Link href={`/roster/player-health?id=${player.id}`} key={player.id}>
-                  <div className="grid grid-cols-6 cell"> {/* Adjust the key and grid column count */}
-                    <div>{player.full_name}</div>
-                    <div>{player.position}</div>
-                    <div>{player.height}</div>
-                    <div>{player.weight}</div>
-                    <div>{player.year}</div>
-                    <div>{player.previous_team}</div>
-                  </div>
+                {players?.map((player, index) => {
+                console.log(`Link href: /roster/player-health/${player.id}`);
+                console.log(`Link key: ${player.id}`);
+                
+                return (
+                  <Link href={`/roster/player-health/${player.id}`} key={player.id}>
+                    <div className="grid grid-cols-6 cell"> {/* Adjust the key and grid column count */}
+                      <div>{player.full_name}</div>
+                      <div>{player.position}</div>
+                      <div>{player.height}</div>
+                      <div>{player.weight}</div>
+                      <div>{player.year}</div>
+                      <div>{player.previous_team}</div>
+                    </div>
                   </Link>
-                ))}
+                );
+              })}
               </div>
             </div>
           </div>
