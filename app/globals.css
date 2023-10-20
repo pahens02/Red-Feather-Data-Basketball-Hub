@@ -22,7 +22,7 @@ body {
 }
 
 * {
-  color: var(--custom-color);
+  /* color: var(--custom-color); */
   font-family: var(--custom-font-family);
   box-sizing: border-box;
 }
@@ -433,8 +433,9 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   max-width: 1000px; /* You can adjust this value */
 }
 
-.content-area-1 {
+* .content-area-1 {
   background-color: var(--custom-color-brand);
+  color: var(--custom-bg-color);
 }
 
 .left-content {
@@ -511,6 +512,7 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
 .table .cell div {
   padding: 10px;
   border: var(--custom-border);
+  color: var(--custom-color);
 }
 
 /* Zebra Striping for rows */

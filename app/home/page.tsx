@@ -32,7 +32,7 @@ export default async function Home() {
                     </div>
                   </div>
                 <div className='content-area content-area-1'>
-                  <div>Current Ranking</div>
+                  <h2>Current Ranking: #1</h2>
                 </div>
               </div>
           </div>

@@ -80,6 +80,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
 
   return (
     <div className='base'>
+      <div className='below-bar no-banner'>
       <div className='parent-container'>
           <div className="form-widget">
             <Avatar
@@ -124,13 +125,13 @@ export default function AccountForm({ session }: { session: Session | null }) {
               </button>
             </div>
 
-            <div>
+            {/* <div>
               <Link href="/home">
                 <button className="button block" type="submit">
                   Home
                 </button>
               </Link>
-            </div>
+            </div> */}
 
             <div>
               <form action="/auth/signout" method="post">
@@ -142,5 +143,6 @@ export default function AccountForm({ session }: { session: Session | null }) {
           </div>
         </div>
       </div>
+    </div>
   )
 }

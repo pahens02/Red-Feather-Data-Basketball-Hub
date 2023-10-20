@@ -24,12 +24,13 @@ const NavBar: React.FC<NavBarProps> = ({ user }) => {
     return (
     <nav className="navigation">
         <div className='menu'>
+            <h2><Link className="hover:text-[var(--custom-color-hover)]" href="/home">Home</Link></h2>
           <h2><Link className="hover:text-[var(--custom-color-hover)]" href="#">Schedule</Link></h2>
           <h2><Link className="hover:text-[var(--custom-color-hover)]" href="/roster">Roster</Link></h2>
           <h2><Link className="hover:text-[var(--custom-color-hover)]" href="#">Games</Link></h2>
           <h2><Link className="hover:text-[var(--custom-color-hover)]" href="#">Practice</Link></h2>
           <h2><Link className="hover:text-[var(--custom-color-hover)]" href="#">Analytics</Link></h2>
-          <h2><Link className="hover:text-[var(--custom-color-hover)]" href="/Guidelines">Guidlines</Link></h2>
+          <h2><Link className="hover:text-[var(--custom-color-hover)]" href="/Guidelines">Guidelines</Link></h2>
         </div>
         <div className="user">
         {user ? (
