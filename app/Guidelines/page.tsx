@@ -2,6 +2,7 @@ import '../globals.css';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
@@ -80,6 +81,7 @@ export default async function Home() {
     </div>
     </div>
     </div>
+    <Footer />
     </div>
   )
 }

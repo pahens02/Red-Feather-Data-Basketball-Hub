@@ -19,10 +19,12 @@ type Player = {
 };
 
 type PlayerHealthInfoType = {
-    medical_notes: string;
-    practice_notes: string;
-    health_status?: string;  // health_status is now optional
+  medical_notes: string;
+  practice_notes: string;
+  nutrition_notes: string;
+  health_status: string;
 };
+
   
 interface PlayerProfileProps {
       playerId: number;
@@ -97,61 +99,69 @@ async function fetchData() {
 
   return (
     <div className='below-bar no-banner'>
-    <div className="parent-container">
-        <section className="main-content-row">
-            <div className="left-content">
-                <div className="player-image">
-                    <img src="/images/cardinal-logo-transparent.png" alt="Player" />
-                </div>
-                <div className='player-profile'>
-                    {player && (
-                    <div className='player-details'>
-                        <h2>{player.full_name}</h2>
-                        <p>Position: {player.position}</p>
-                        <p>Year: {player.year}</p>
-                    </div>
-                    )}
-                </div>
-            </div>
-            <div className="right-content">
-                {playerHealthInfo && (
-                    <div className='player-health-info'>
-                        <div className="health-status">
-                            <h3>Status</h3>
-                            <div className="entries">
-                                <div className="entry">
-                                <p>{playerHealthInfo.health_status}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
-                <button className="button" onClick={() => {
-                    const newStatus = prompt('Enter new health status:');
-                    if (newStatus) {
-                    updateHealthStatus(newStatus);
-                    }
-                    }}>Update Health Status
-                </button>
-            </div>
-        </section>
-    </div>
-    <div className="parent-container">
-            <h3>Health Notes</h3>
-            <div className="entries">
-                <div className="entry">
-                    <p>{playerHealthInfo && playerHealthInfo.medical_notes}</p>
-                </div>
-            </div>
-          </div>
-          <div className="parent-container">
-              <h3>Practice Notes</h3>
-              <div className="entries">
-                  <div className="entry">
-                      <p>{playerHealthInfo && playerHealthInfo.practice_notes}</p>
+      <div className="parent-container">
+          <section className="main-content-row">
+              <div className="left-content">
+                  <div className="player-image">
+                      <img src="/images/cardinal-logo-transparent.png" alt="Player" />
+                  </div>
+                  <div className='player-profile'>
+                      {player && (
+                      <div className='player-details'>
+                          <h2>{player.full_name}</h2>
+                          <p>Position: {player.position}</p>
+                          <p>Year: {player.year}</p>
+                      </div>
+                      )}
                   </div>
               </div>
+              <div className="right-content">
+                  {playerHealthInfo && (
+                      <div className='player-health-info'>
+                          <div className="health-status">
+                              <h3>Status</h3>
+                              <div className="entries">
+                                  <div className="entry">
+                                  <p>{playerHealthInfo.health_status}</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  )}
+                  <button className="button" onClick={() => {
+                      const newStatus = prompt('Enter new health status:');
+                      if (newStatus) {
+                      updateHealthStatus(newStatus);
+                      }
+                      }}>Update Health Status
+                  </button>
+              </div>
+          </section>
+      </div>
+      <div className="parent-container">
+        <h3>Health Notes</h3>
+          <div className="entries">
+              <div className="entry">
+                <p>{playerHealthInfo && playerHealthInfo.medical_notes}</p>
+              </div>
           </div>
+      </div>
+      <div className="parent-container">
+        <h3>Practice Notes</h3>
+          <div className="entries">
+              <div className="entry">
+                  <p>{playerHealthInfo && playerHealthInfo.practice_notes}</p>
+              </div>
+          </div>
+      </div>
+      <div className="parent-container">
+        <h3>Nutrition Notes</h3>
+        <div className="entries">
+          <div className="entry">
+              <p>{playerHealthInfo && playerHealthInfo.nutrition_notes}</p>
+          </div>
+      </div>
+    </div>
     </div>
   );
 }

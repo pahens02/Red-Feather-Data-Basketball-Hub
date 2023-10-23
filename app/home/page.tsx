@@ -2,6 +2,7 @@ import '../globals.css';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
@@ -65,13 +66,7 @@ export default async function Home() {
           </div>
       </div>
       {/* Footer Section for Quick Access to News and Updates */}
-      <footer className="footer">
-      <h2>Contact</h2>
-        <section className="news-updates">
-          {/* Populate with the latest news and updates about the team */}
-         
-        </section>
-      </footer>
+      <Footer />
     </div>
   )
 }

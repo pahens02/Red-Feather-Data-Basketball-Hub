@@ -389,7 +389,7 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding-top: 20px; /* Adjust this value to create space below the fixed navigation bar */
+  margin-top: 20px; /* Adjust this value to create space below the fixed navigation bar */
 }
 
 .below-bar.no-banner {
@@ -606,22 +606,59 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
 }
 
 .footer {
-  position: fixed;
+  /* Remove the position, bottom, left, and right properties */
   max-width: 100%;
-  bottom: 0;
-  left: 0;
-  right: 0;
   display: flex;
   flex-flow: row;
   border-top: var(--custom-border);
   background-color: var(--custom-bg-color);
 }
+
 .footer div {
   padding: var(--custom-spacing);
   display: flex;
   align-items: center;
   width: 100%;
 }
+
+.footer-content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;  /* Adjusted from align-items: start; */
+  padding: 0 20px 20px;
+}
+
+.contact-section,
+.news-updates,
+.upcoming-events,
+.subscribe-updates {
+  flex: 1;
+  margin: 10px;
+  padding: 10px;
+  background: var(--section-bg-color);  /* Define --section-bg-color in your CSS variables */
+  border-radius: 8px;
+}
+
+.footer a {
+  color: var(--link-color);  /* Define --link-color in your CSS variables */
+  text-decoration: none;
+}
+
+.footer .contact-section a {
+  color: var(--custom-color-hover);  /* You can use a custom color or var(--red-color) if you have defined red in CSS variables */
+}
+
+.footer h2 {
+  margin-bottom: 10px;
+  font-size: 1rem;  /* Adjust as needed */
+}
+
+.footer p {
+  margin: 5px 0;
+  font-size: 0.9rem;  /* Adjust as needed */
+}
+
 .footer div > img {
   height: 20px;
   margin-left: 10px;
