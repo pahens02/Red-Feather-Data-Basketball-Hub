@@ -25,7 +25,7 @@ const NavBar: React.FC<NavBarProps> = ({ user }) => {
     <nav className="navigation">
         <div className='menu'>
             <h2><Link className="hover:text-[var(--custom-color-hover)]" href="/home">Home</Link></h2>
-          <h2><Link className="hover:text-[var(--custom-color-hover)]" href="#">Schedule</Link></h2>
+          <h2><Link className="hover:text-[var(--custom-color-hover)]" href="https://outlook.office365.com/owa/calendar/0cf5a7c5a761404493d22ee9140d7602@louisville.edu/232faca8254b40c9804916ac3c6a340c1212094087179253225/calendar.html">Schedule</Link></h2>
           <h2><Link className="hover:text-[var(--custom-color-hover)]" href="/roster">Roster</Link></h2>
           <h2><Link className="hover:text-[var(--custom-color-hover)]" href="#">Games</Link></h2>
           <h2><Link className="hover:text-[var(--custom-color-hover)]" href="#">Practice</Link></h2>

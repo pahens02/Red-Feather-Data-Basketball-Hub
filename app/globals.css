@@ -558,6 +558,39 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   padding: var(--custom-spacing);
 }
 
+.player-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.player-card {
+  border: 3px solid var(--custom-color);
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 200px;
+  min-height: 650px;
+  color: var(--custom-color);
+}
+
+.player-image {
+  max-width: 100%;
+  height: auto;
+  background-color: var(--custom-color-brand); /* New background-color for player photo */
+}
+
+.player-cards a,
+.player-cards a:hover,
+.player-cards a:active {
+  color: #000;
+  text-decoration: none;
+}
+
+
 .avatar {
   border-radius: var(--custom-border-radius);
   overflow: hidden;

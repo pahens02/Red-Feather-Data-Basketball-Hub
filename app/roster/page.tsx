@@ -1,21 +1,18 @@
 import '../globals.css';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 import NavBar from '../components/NavBar';
-import Link from 'next/link'
+import Link from 'next/link';
 
-
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic';
 
 export default async function RosterPage () {
   const supabase = createServerComponentClient({ cookies });
   const { data: players } = await supabase.from("players").select();
-
   const {
     data: { user },
   } = await supabase.auth.getUser();
-      
-
+  
   return (
     <div className='base'>
         <NavBar user={user} />
@@ -24,38 +21,24 @@ export default async function RosterPage () {
             <div className='content-area content-area-2'>
                 <div className="search-bar">
                     <input type="text" placeholder="Search players" />
-                  <button className="button" type="submit">Search</button>
+                    <button className="button" type="submit">Search</button>
                 </div>
             <h2 className="text-lg font-bold text-center">2023-24 Men&apos;s Basketball Roster</h2>
-              <div className="table w-full">
-                {/* Headers Section */}
-                <div className="grid grid-cols-6 header-cell"> {/* Adjust grid column count */}
-                  <div>Full Name</div>
-                  <div>Position</div>
-                  <div>Height</div>
-                  <div>Weight</div>
-                  <div>Year</div>
-                  <div>Previous Team</div>
-                </div>
-
-                {/* Players Data Section */}
-                {players?.map((player, index) => {
-                console.log(`Link href: /roster/player-health/${player.id}`);
-                console.log(`Link key: ${player.id}`);
-                
-                return (
+              <div className="player-cards">
+                {/* Player Cards Section */}
+                {players?.map((player, index) => (
                   <Link href={`/roster/player-health/${player.id}`} key={player.id}>
-                    <div className="grid grid-cols-6 cell"> {/* Adjust the key and grid column count */}
-                      <div>{player.full_name}</div>
-                      <div>{player.position}</div>
-                      <div>{player.height}</div>
-                      <div>{player.weight}</div>
-                      <div>{player.year}</div>
-                      <div>{player.previous_team}</div>
+                    <div className="player-card">
+                      <img className="player-image" src={player.avatar_url} alt={`${player.full_name}`} />
+                      <h2>{player.full_name}</h2>
+                      <p>Position: {player.position}</p>
+                      <p>Height: {player.height}</p>
+                      <p>Weight: {player.weight}</p>
+                      <p>Year: {player.year}</p>
+                      <p>Previous Team: {player.previous_team}</p>
                     </div>
                   </Link>
-                );
-              })}
+                ))}
               </div>
             </div>
           </div>
@@ -63,3 +46,4 @@ export default async function RosterPage () {
     </div>
   );
 };
+
