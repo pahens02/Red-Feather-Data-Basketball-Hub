@@ -404,6 +404,15 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   box-sizing: border-box;
 }
 
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 880px;
+  padding-top: 20px;
+}
+
 /* Main Content */
 .main-content-column {
   flex-grow: 2;
@@ -442,7 +451,7 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .player-image img {
@@ -562,7 +571,7 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: center;
+  justify-content: left;
 }
 
 .player-card {
@@ -573,7 +582,7 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   flex-direction: column;
   justify-content: space-between;
   width: 200px;
-  min-height: 650px;
+  min-height: 620px;
   color: var(--custom-color);
 }
 

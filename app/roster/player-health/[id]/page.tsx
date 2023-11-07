@@ -2,26 +2,25 @@ import NavBar from '../../../components/NavBar';
 import PlayerProfile from '../../../components/PlayerProfile';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
+import { useSearchParams } from 'next/navigation';
 
 export const dynamic = 'force-dynamic'
 
-interface PlayerHealthPageProps {
-  searchParams: {
+interface Params {
     id: string;
-  };
 }
 
-export default async function PlayerHealthPage({ searchParams }: PlayerHealthPageProps) {
+export default async function PlayerHealthPage({ params }: { params: Params }) {
   const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const playerId = Number(1);
+  const playerId = Number(params.id);
 
   if (isNaN(playerId)) {
-    console.error('Invalid player ID:', searchParams.id);
+    console.error('Invalid player ID:', params.id);
     return <div>Invalid player ID</div>;
   }
 
