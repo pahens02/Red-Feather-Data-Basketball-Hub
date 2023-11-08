@@ -39,7 +39,7 @@ export default async function Home() {
               </div>
           </div>
           <div className="parent-container-2">
-          <div className='content-area content-area-2'>
+          <div className='content-area'>
             {/* Upcoming Game Section */}
             {upcomingGame && (
               <div>
@@ -57,7 +57,7 @@ export default async function Home() {
               </div>
             )}
           </div>
-            <div className='content-area content-area-2'>
+            <div className='content-area'>
               {/* Game Information Section */}
               <h2 className="text-lg font-bold text-center">Recent Games</h2>
                 <div className="table w-full">
