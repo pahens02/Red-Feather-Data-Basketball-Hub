@@ -1,7 +1,6 @@
 'use client'
 // /components/RosterPageClient.tsx
 import React, { useState } from 'react';
-import NavBar from './NavBar';
 import Footer from './Footer';
 import Link from 'next/link';
 
@@ -76,7 +75,7 @@ export default function RosterPageClient({ players, user }: RosterPageProps ) {
                 {/* <button className="button" type="submit">Search</button> */}
             </div>
         <h2 className="text-lg font-bold text-center">2023-24 Men&apos;s Basketball Roster</h2>
-          <div className="player-cards">
+          <div className="player-cards grid grid-cols-5">
             {/* Player Cards Section */}
             {filteredPlayers?.map((player, index) => (
               <Link href={`/roster/player-health/${player.id}`} key={player.id}>

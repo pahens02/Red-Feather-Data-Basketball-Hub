@@ -338,7 +338,6 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   color: var(--custom-color); /* Adjust as needed */
   text-decoration: none;
   /* margin: 10px; */
-  color: var(--custom-color-secondary);
 }
 
 .navigation h2 a {
@@ -359,6 +358,42 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   justify-content: space-evenly;
   flex-grow: 1;  /* Added flex-grow */
 }
+
+/* Add this CSS to your globals.css or relevant stylesheet */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--custom-color-brand);
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .hover {
+  background-color: #3e8e41;
+}
+
 
 .spacer {
   flex-grow: 2;  /* New spacer div with flex-grow */
@@ -447,6 +482,15 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   color: var(--custom-bg-color);
 }
 
+* .content-area-2 {
+  padding: 20px;
+  margin: 10px;
+  border-radius: var(--custom-border-radius);
+  box-sizing: border-box;
+  width: 100%; /* Ensures full width usage */
+  max-width: 1500px; /* You can adjust this value */
+}
+
 .left-content {
   flex: 1;
   display: flex;
@@ -464,6 +508,10 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.pb-4 {
+  padding-bottom: 20px;
 }
 
 .entries {
@@ -508,6 +556,11 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   grid-template-columns: repeat(6, 1fr); /* Adjust as needed */
 }
 
+.grid.grid-cols-8 {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* Adjust as needed */
+}
+
 /* Table Headers */
 .table .header-cell div {
   background-color: var(--custom-color-brand);
@@ -524,10 +577,24 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   color: var(--custom-color);
 }
 
-/* Zebra Striping for rows */
-.table .cell:nth-child(even) div {
+.table a:nth-child(odd) .cell {
   background-color: var(--custom-panel-color);
 }
+
+/* Hover Effect */
+.table .cell:hover div {
+  background-color: var(--custom-color-hover);
+  color: var(--custom-color-secondary);
+  transition: background-color 0.3s ease;
+}
+
+/* Link adjustments */
+.table a,
+.table a:hover {
+  text-decoration: none;
+  color: inherit; /* Adjust if necessary */
+}
+
 
 /* Hover Effect */
 .table .cell:hover div {
@@ -547,9 +614,10 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
 }
 
 .table a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   color: var(--custom-bg-color);
 }
+
 
 
 /* News Updates in Footer */
@@ -586,19 +654,23 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   color: var(--custom-color);
 }
 
+
 .player-image {
   max-width: 100%;
   height: auto;
   background-color: var(--custom-color-brand); /* New background-color for player photo */
 }
 
-.player-cards a,
-.player-cards a:hover,
-.player-cards a:active {
+.player-cards a {
   color: #000;
   text-decoration: none;
 }
 
+.player-cards a:hover {
+  color: var(--custom-bg-color);
+  text-decoration: none;
+  background-color: var(--custom-panel-color);
+}
 
 .avatar {
   border-radius: var(--custom-border-radius);

@@ -9,7 +9,8 @@ export const dynamic = 'force-dynamic'
 
 export default async function Home() {
   const supabase = createServerComponentClient({ cookies })
-  const { data: games } = await supabase.from("louisvillerecentgames").select();
+  const { data: games } = await supabase.from("recentgames").select();
+  const { data: upcomingGame } = await supabase.from('upcoming_game').select('*').single();
 
   const {
     data: { user },
@@ -33,11 +34,29 @@ export default async function Home() {
                     </div>
                   </div>
                 <div className='content-area content-area-1'>
-                  <h2>Current Ranking: #1</h2>
+                  <h2>Days Until Game: {upcomingGame.days_until_game}</h2>
                 </div>
               </div>
           </div>
           <div className="parent-container-2">
+          <div className='content-area content-area-2'>
+            {/* Upcoming Game Section */}
+            {upcomingGame && (
+              <div>
+                <h2>Next Game</h2>
+                <div className="table w-full">
+                  <div className="grid grid-cols-2 header-cell">
+                    <div>Opponent</div>
+                    <div>Date</div>
+                  </div>
+                  <div className="grid grid-cols-2 cell">
+                    <div>{upcomingGame.opponent_team}</div>
+                    <div>{upcomingGame.game_date}</div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
             <div className='content-area content-area-2'>
               {/* Game Information Section */}
               <h2 className="text-lg font-bold text-center">Recent Games</h2>
@@ -53,8 +72,8 @@ export default async function Home() {
 
                   {/* Game Data Section */}
                   {games?.map((game, index) => (
-                    <div key={game.game_id} className="grid grid-cols-5 cell">
-                      <div>{new Date(game.game_date).toLocaleDateString()}</div>
+                    <div key={index} className="grid grid-cols-5 cell">
+                      <div>{game.game_date}</div>
                       <div className="row">{game.opponent_team}</div>
                       <div className="row">{game.louisville_points}</div>
                       <div className="row">{game.opponent_points}</div>
