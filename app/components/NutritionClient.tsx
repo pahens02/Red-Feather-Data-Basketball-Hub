@@ -117,9 +117,10 @@ export const dynamic = 'force-dynamic';
 
         {/* Nutrition Data Section */}
         {sortedAndFilteredStats?.map((stat, index) => (
-          <Link href={`/roster/player-health/${stat.id}`} key={stat.id}>
             <div key={index} className="grid grid-cols-8 cell">
-                <div className="row">{stat.full_name}</div>
+                <Link href={`/roster/player-health/${stat.id}`} key={stat.id}>
+                  <div className="row">{stat.full_name}</div>
+                </Link>
                 <div className="row">{stat.weight}</div>
                 <div className="row">{stat.mealplan}</div>
                 <div className="row">{stat.approvedfoods}</div>
@@ -128,7 +129,6 @@ export const dynamic = 'force-dynamic';
                 <div className="row">{stat.additionalsupplements}</div>
                 <div className="row">{stat.recommendedcalories}</div>
             </div>
-          </Link>
         ))}
       </div>
     </div>
