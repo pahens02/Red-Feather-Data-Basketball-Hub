@@ -113,60 +113,60 @@ export default function PlayerStatsClient({ playerStats }: PlayerStatsProps) {
 
   return (
     <div>
-  {/* Player Game Statistics Section */}
-  <h1 className="text-lg font-bold text-center">Player Game Stats</h1>
-  <div className='pb-4'>
-    {/* Reset Button */}
-    <button onClick={resetSort} className="button">
-      Reset Sort
-    </button>
-  </div>
-  <div className="search-bar pb-4">
-    <input 
-      type="text" 
-      placeholder="Search stats" 
-      onChange={handleSearchChange} 
-      value={searchTerm} 
-    />
-  </div>
-  <div className="table w-full">
-    {/* Headers Section */}
-    <div className="grid grid-cols-12 header-cell">
-      <div onClick={() => sortData('full_name')}>Full Name</div>
-      <div onClick={() => sortData('points_scored')}>Points</div>
-      <div onClick={() => sortData('assists')}>Assists</div>
-      <div onClick={() => sortData('rebounds')}>Rebounds</div>
-      <div onClick={() => sortData('steals')}>Steals</div>
-      <div onClick={() => sortData('blocks')}>Blocks</div>
-      <div onClick={() => sortData('turnovers')}>Turnovers</div>
-      <div onClick={() => sortData('minutes_played')}>Minutes Played</div>
-      <div onClick={() => sortData('field_goal_percentage')}>FG%</div>
-      <div onClick={() => sortData('three_point_percentage')}>3P%</div>
-      <div onClick={() => sortData('free_throw_percentage')}>FT%</div>
-      <div onClick={() => sortData('game_date')}>Game Date</div>
-    </div>
+      {/* Player Game Statistics Section */}
+      <h1 className="text-lg font-bold text-center">Player Game Stats</h1>
+      <div className='pb-4'>
+        {/* Reset Button */}
+        <button onClick={resetSort} className="button">
+          Reset Sort
+        </button>
+      </div>
+      <div className="search-bar pb-4">
+        <input 
+          type="text" 
+          placeholder="Search stats" 
+          onChange={handleSearchChange} 
+          value={searchTerm} 
+        />
+      </div>
+      <div className="table w-full">
+        {/* Headers Section */}
+        <div className="grid grid-cols-12 header-cell">
+          <div onClick={() => sortData('full_name')}>Full Name</div>
+          <div onClick={() => sortData('points_scored')}>Points</div>
+          <div onClick={() => sortData('assists')}>Assists</div>
+          <div onClick={() => sortData('rebounds')}>Rebounds</div>
+          <div onClick={() => sortData('steals')}>Steals</div>
+          <div onClick={() => sortData('blocks')}>Blocks</div>
+          <div onClick={() => sortData('turnovers')}>Turnovers</div>
+          <div onClick={() => sortData('minutes_played')}>Minutes Played</div>
+          <div onClick={() => sortData('field_goal_percentage')}>FG%</div>
+          <div onClick={() => sortData('three_point_percentage')}>3P%</div>
+          <div onClick={() => sortData('free_throw_percentage')}>FT%</div>
+          <div onClick={() => sortData('game_date')}>Game Date</div>
+        </div>
 
-    {/* Game Data Section */}
-    {sortedAndFilteredStats?.map((stat, index) => (
-    <div key={index} className="grid grid-cols-12 cell">
-        {/* Convert game_date to a Date object before calling toLocaleDateString */}
-        <Link href={`/roster/player-health/${stat.player_id}`} key={stat.player_id}>
-            <div>{stat.full_name}</div>
-        </Link>
-        <div>{stat.points_scored}</div>
-        <div>{stat.assists}</div>
-        <div>{stat.rebounds}</div>
-        <div>{stat.steals}</div>
-        <div>{stat.blocks}</div>
-        <div>{stat.turnovers}</div>
-        <div>{stat.minutes_played}</div>
-        <div>{stat.field_goal_percentage !== null ? (stat.field_goal_percentage * 100).toFixed(1) + '%' : 'N/A'}</div>
-        <div>{stat.three_point_percentage !== null ? (stat.three_point_percentage * 100).toFixed(1) + '%' : 'N/A'}</div>
-        <div>{stat.free_throw_percentage !== null ? (stat.free_throw_percentage * 100).toFixed(1) + '%' : 'N/A'}</div>
-        <div>{stat.game_date ? new Date(stat.game_date).toLocaleDateString() : 'N/A'}</div>
-    </div>
-    ))}
+        {/* Game Data Section */}
+        {sortedAndFilteredStats?.map((stat, index) => (
+          <div key={index} className="grid grid-cols-12 cell">
+            {/* Convert game_date to a Date object before calling toLocaleDateString */}
+            <Link href={`/roster/player-health/${stat.player_id}`} key={stat.player_id}>
+                <div>{stat.full_name}</div>
+            </Link>
+            <div>{stat.points_scored}</div>
+            <div>{stat.assists}</div>
+            <div>{stat.rebounds}</div>
+            <div>{stat.steals}</div>
+            <div>{stat.blocks}</div>
+            <div>{stat.turnovers}</div>
+            <div>{stat.minutes_played}</div>
+            <div>{stat.field_goal_percentage !== null ? (stat.field_goal_percentage * 100).toFixed(1) + '%' : 'N/A'}</div>
+            <div>{stat.three_point_percentage !== null ? (stat.three_point_percentage * 100).toFixed(1) + '%' : 'N/A'}</div>
+            <div>{stat.free_throw_percentage !== null ? (stat.free_throw_percentage * 100).toFixed(1) + '%' : 'N/A'}</div>
+            <div>{stat.game_date ? new Date(stat.game_date).toLocaleDateString() : 'N/A'}</div>
+          </div>
+        ))}
+      </div>
   </div>
-</div>
   );
 };

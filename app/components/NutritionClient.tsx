@@ -86,14 +86,14 @@ export const dynamic = 'force-dynamic';
         {/* Player Nutrition Information Section */}
         <h1 className="text-lg font-bold text-center">Player Nutrition Stats</h1>
         <div className='pb-4'>
-        {/* Reset Button */}
-        <button
-            onClick={resetSort}
-            className="button"
-        >
-            Reset Sort
-        </button>
-      </div>
+          {/* Reset Button */}
+          <button
+              onClick={resetSort}
+              className="button"
+          >
+              Reset Sort
+          </button>
+        </div>
       <div className="search-bar pb-4">
                 <input 
                   type="text" 
@@ -101,7 +101,7 @@ export const dynamic = 'force-dynamic';
                   onChange={handleSearchChange} 
                   value={searchTerm} 
                 />
-        </div>
+      </div>
       <div className="table w-full">
         {/* Headers Section */}
         <div className="grid grid-cols-8 header-cell">
@@ -117,18 +117,18 @@ export const dynamic = 'force-dynamic';
 
         {/* Nutrition Data Section */}
         {sortedAndFilteredStats?.map((stat, index) => (
-            <div key={index} className="grid grid-cols-8 cell">
-                <Link href={`/roster/player-health/${stat.id}`} key={stat.id}>
-                  <div className="row">{stat.full_name}</div>
-                </Link>
-                <div className="row">{stat.weight}</div>
-                <div className="row">{stat.mealplan}</div>
-                <div className="row">{stat.approvedfoods}</div>
-                <div className="row">{stat.bodyfatpercentage}</div>
-                <div className="row">{stat.dailyfluidsoz}</div>
-                <div className="row">{stat.additionalsupplements}</div>
-                <div className="row">{stat.recommendedcalories}</div>
-            </div>
+          <div key={index} className="grid grid-cols-8 cell">
+            <Link href={`/roster/player-health/${stat.id}`} key={stat.id}>
+              <div>{stat.full_name}</div>
+            </Link>
+            <div>{stat.weight}</div>
+            <div>{stat.mealplan}</div>
+            <div>{stat.approvedfoods}</div>
+            <div>{stat.bodyfatpercentage}</div>
+            <div>{stat.dailyfluidsoz}</div>
+            <div>{stat.additionalsupplements}</div>
+            <div>{stat.recommendedcalories}</div>
+          </div>
         ))}
       </div>
     </div>

@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
-interface BasketballGameStat {
+interface PlayerGameStat {
   id: number;
   player_id: number | null;
   full_name: string | null; // Include the full_name field
@@ -26,11 +26,11 @@ interface BasketballGameStat {
 }
 
 interface GamePageProps {
-  stats: BasketballGameStat[];
+  stats: PlayerGameStat[];
   user: any; // Replace 'any' with your User type if available
 }
 
-const defaultStats: BasketballGameStat[] = []; // Default empty array for stats
+const defaultStats: PlayerGameStat[] = []; // Default empty array for stats
 const defaultUser: any = {}; // Default empty object for user
 
 export default async function GamePage() {
@@ -38,7 +38,7 @@ export default async function GamePage() {
   
   // Fetch game statistics from the database
   const { data } = await supabase.from("vw_player_game_stats").select("*");
-  const gameStatsData: BasketballGameStat[] = data || defaultStats;
+  const gameStatsData: PlayerGameStat[] = data || defaultStats;
 
   // Fetch user data
   const {
@@ -53,7 +53,6 @@ export default async function GamePage() {
       <div className='below-bar no-banner'>
         <div className="parent-container-2">
           <div className='content-area content-area-2'>
-            {/* Pass the game statistics to the PlayerStatsClient component */}
             <PlayerStatsClient playerStats={gameStatsData}/>
           </div>
         </div>

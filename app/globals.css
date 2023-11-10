@@ -551,6 +551,11 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   grid-template-columns: repeat(5, 1fr); /* Adjust as needed */
 }
 
+.grid.grid-cols-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Adjust as needed */
+}
+
 .grid.grid-cols-6 {
   display: grid;
   grid-template-columns: repeat(6, 1fr); /* Adjust as needed */
@@ -559,6 +564,11 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
 .grid.grid-cols-8 {
   display: grid;
   grid-template-columns: repeat(8, 1fr); /* Adjust as needed */
+}
+
+.grid.grid-cols-11 {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr); /* Adjust as needed */
 }
 
 .grid.grid-cols-12 {
