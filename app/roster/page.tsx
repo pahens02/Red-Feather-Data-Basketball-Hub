@@ -1,4 +1,5 @@
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import RosterPageClient from '../components/RosterPageClient';
@@ -36,6 +37,7 @@ export default async function RosterPage() {
     <div className='base'>
       <NavBar user={user} />
       <RosterPageClient players={roster} user={user} />
+      <Footer />
     </div>
   );
 }

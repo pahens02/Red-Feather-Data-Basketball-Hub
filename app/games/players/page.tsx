@@ -49,7 +49,6 @@ export default async function GamePage() {
     <div className='base'>
       {/* Navigation Bar */}
       <NavBar user={user} />
-      {/* Banner Image */}
       <div className='below-bar no-banner'>
         <div className="parent-container-2">
           <div className='content-area content-area-2'>

@@ -1,75 +1,63 @@
-import React from 'react';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
+import '../../globals.css';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
+import StrengthClient from '../../components/StrengthClient'; // Assuming a new component for practice stats
+import Link from 'next/link';
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic';
 
-const workoutSchedule = {
-  strengthTraining: [
-    { day: 'Monday', exercises: ['Bench: 3x10', 'Squat: 4x12', 'Deadlift: 5x8', 'Powerclean: 3x10'] },
-    // ... other days
-  ],
-  conditioning: [
-    { day: 'Monday', exercises: ['40 Yard Dash', 'Burpees', '1 Mile Run'] },
-    // ... other days
-  ],
-  recovery: [
-    { day: 'Monday', activities: ['E-Stim', 'Laser Mobility', 'Laser Prehab', 'BFR (Recovery)', 'Game Ready', 'Stretching'] },
-    // ... other days
-  ]
-};
+// New interface for the practice stats to include the player's full name and practice date
+interface StrengthStat {
+  id: number;
+  player_id: number;
+  full_name: string; // Player's full name from the players table
+  bench_press_reps: number | null;
+  conditioning_exercises: string | null;
+  recovery_exercises: string | null;
+  squat_weight: number | null;
+  deadlift_weight: number | null;
+  vertical_jump_height: number | null;
+  agility_drill_time: number | null;
+  force_plate_peak_force: number | null;
+  practice_date: Date; // New practice date column
+}
 
-export default async function SchedulePage() {
-    const supabase = createServerComponentClient({ cookies });
+interface StrengthPageProps {
+  training: StrengthStat[];
+  user: any; // Replace 'any' with your User type if available
+}
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+const defaultStats: StrengthStat[] = []; // Default empty array for stats
+const defaultUser: any = {}; // Default empty object for user
+
+export default async function PracticePage() {
+  const supabase = createServerComponentClient({ cookies });
+
+  // Fetch data from the new view
+  const { data } = await supabase.from("strength_training_details").select("*");
+  const trainingData: StrengthStat[] = data || defaultStats;
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   return (
     <div className='base'>
-        <NavBar user={user} />
-        <div className='below-bar no-banner'>
-            <div className="parent-container">
-                <div className="schedule-container">
-                <div className="strength-training">
-                    <h1>Strength Training</h1>
-                    {workoutSchedule.strengthTraining.map(session => (
-                    <div key={session.day}>
-                        <h2>{session.day}</h2>
-                        {session.exercises.map(exercise => (
-                        <p key={exercise}>{exercise}</p>
-                        ))}
-                    </div>
-                    ))}
-                </div>
-                <div className="conditioning">
-                    <h1>Conditioning</h1>
-                    {workoutSchedule.conditioning.map(session => (
-                    <div key={session.day}>
-                        <h2>{session.day}</h2>
-                        {session.exercises.map(exercise => (
-                        <p key={exercise}>{exercise}</p>
-                        ))}
-                    </div>
-                    ))}
-                </div>
-                <div className="recovery">
-                    <h1>Recovery</h1>
-                    {workoutSchedule.recovery.map(session => (
-                    <div key={session.day}>
-                        <h2>{session.day}</h2>
-                        {session.activities.map(activity => (
-                        <p key={activity}>{activity}</p>
-                        ))}
-                    </div>
-                    ))}
-                </div>
-                </div>
-            </div>
+      {/* Navigation Bar */}
+      <NavBar user={user} />
+      {/* Main content area */}
+      <div className='below-bar no-banner'>
+        <div className="parent-container-2">
+          <div className='content-area content-area-3'>
+            {/* Pass the practice statistics to the PracticeStats component */}
+            <StrengthClient training={trainingData}/>
+          </div>
         </div>
+      </div>
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 };
-

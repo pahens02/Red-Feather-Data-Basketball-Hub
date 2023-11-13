@@ -124,7 +124,7 @@ export default function PlayerStatsClient({ playerStats }: PlayerStatsProps) {
       <div className="search-bar pb-4">
         <input 
           type="text" 
-          placeholder="Search stats" 
+          placeholder="Search players" 
           onChange={handleSearchChange} 
           value={searchTerm} 
         />

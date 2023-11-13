@@ -92,7 +92,6 @@ export default function RosterPageClient({ players, user }: RosterPageProps ) {
           </div>
         </div>
       </div>
-    <Footer />
     </div>
   );
 };

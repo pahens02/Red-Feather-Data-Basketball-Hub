@@ -491,6 +491,15 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   max-width: 1500px; /* You can adjust this value */
 }
 
+* .content-area-3 {
+  padding: 20px;
+  margin: 10px;
+  border-radius: var(--custom-border-radius);
+  box-sizing: border-box;
+  width: 100%; /* Ensures full width usage */
+  max-width: 1800px; /* You can adjust this value */
+}
+
 .left-content {
   flex: 1;
   display: flex;
@@ -566,6 +575,11 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   grid-template-columns: repeat(8, 1fr); /* Adjust as needed */
 }
 
+.grid.grid-cols-10 {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* Adjust as needed */
+}
+
 .grid.grid-cols-11 {
   display: grid;
   grid-template-columns: repeat(11, 1fr); /* Adjust as needed */
@@ -574,6 +588,11 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
 .grid.grid-cols-12 {
   display: grid;
   grid-template-columns: repeat(12, 1fr); /* Adjust as needed */
+}
+
+.grid.grid-cols-13 {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr); /* Adjust as needed */
 }
 
 /* Table Headers */
@@ -586,10 +605,12 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
 }
 
 /* Table Data */
+
 .table .cell div {
   padding: 10px;
   border: var(--custom-border);
   color: var(--custom-color);
+  flex-grow: 1; /* Ensures the div fills the cell horizontally */
 }
 
 .table a:nth-child(odd) .cell {
@@ -608,18 +629,18 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
 }
 
 /* Link adjustments */
-.table a,
-.table a:hover {
+.table a {
   text-decoration: none;
-  color: inherit; /* Adjust if necessary */
+  color: inherit;
+  display: flex;
+  height: 100%;
+  width: 100%; /* Ensures the link fills the cell horizontally */
 }
 
-
-/* Hover Effect */
-.table .cell:hover div {
-  background-color: var(--custom-color-hover);
-  color: var(--custom-color-secondary);
-  transition: background-color 0.3s ease;
+/* Ensure the hover effect applies to the link for consistency */
+.table a:hover {
+  background-color: inherit; /* Use inherit to match the cell's hover state */
+  color: inherit;
 }
 
 /* Adjustments for the first column to align the text to the left */
@@ -628,15 +649,12 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   text-align: left;
 }
 
-.table a {
-  text-decoration: none;
-}
-
+/* Reset borders and text-decoration on hover for links */
+.table a,
 .table a:hover {
-  text-decoration: none;
-  color: var(--custom-bg-color);
+  border: none; /* Resets any borders */
+  text-decoration: none; /* Ensures no underline on hover */
 }
-
 
 
 /* News Updates in Footer */
