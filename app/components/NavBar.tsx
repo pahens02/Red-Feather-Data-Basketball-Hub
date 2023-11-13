@@ -43,7 +43,7 @@ const NavBar: React.FC<NavBarProps> = ({ user }) => {
                 </div>
           </div>
           <h2><Link className="hover:text-[var(--custom-color-hover)]" href="/analytics">Analytics</Link></h2>
-          <h2><Link className="hover:text-[var(--custom-color-hover)]" href="/guidelines">Guidelines</Link></h2>
+          <h2><Link className="hover:text-[var(--custom-color-hover)]" href="/Guidelines">Guidelines</Link></h2>
           <div className="dropdown">
                 <h2><Link className="hover:text-[var(--custom-color-hover)]" href="#">Quick Links</Link></h2>
                 <div className="dropdown-content">
