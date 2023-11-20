@@ -523,6 +523,10 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   padding-bottom: 20px;
 }
 
+.pb-2 {
+  padding-bottom: 10px;
+}
+
 .entries {
   display: flex;
   flex-direction: column;
@@ -661,6 +665,9 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
 .news-updates {
   padding: 20px; /* Adjust as needed */
 }
+
+/* Add additional rules or modify these based on your specific layout and design needs */
+
 
 /* Widgets */
 
