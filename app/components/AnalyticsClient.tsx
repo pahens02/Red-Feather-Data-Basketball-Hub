@@ -115,22 +115,22 @@ export default function PlayerAnalyticsGraph({ analytics }: AnalyticsStatsProps)
       ];
 
       const handleStatChange = (
-        selectedOption: SingleValue<{ value: keyof AnalyticsPracticeStat; label: string; }>,
+        selectedOption: SingleValue<{ value: string; label: string; }>,
         actionMeta: ActionMeta<{ value: string; label: string; }>
     ) => {
         if (selectedOption) {
-            setSelectedStat(selectedOption.value);
+            setSelectedStat(selectedOption.value as keyof AnalyticsPracticeStat);
         }
-    };
+    };    
     
     const handleTeamStatChange = (
-        selectedOption: SingleValue<{ value: keyof AnalyticsPracticeStat; label: string; }>,
+        selectedOption: SingleValue<{ value: string; label: string; }>,
         actionMeta: ActionMeta<{ value: string; label: string; }>
     ) => {
         if (selectedOption) {
-            setSelectedTeamStat(selectedOption.value);
+            setSelectedTeamStat(selectedOption.value as keyof AnalyticsPracticeStat);
         }
-    };
+    };    
     
 
     const playerOptions = Array.from(new Set(analytics.map(stat => ({
