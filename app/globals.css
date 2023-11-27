@@ -523,6 +523,10 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
   padding-bottom: 20px;
 }
 
+.pb-2 {
+  padding-bottom: 10px;
+}
+
 .entries {
   display: flex;
   flex-direction: column;
@@ -557,43 +561,48 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Adjust as needed */
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust minmax as needed */
+  min-width: 600px;
 }
 
-.grid.grid-cols-4 {
+.table {
+  overflow-x: auto;
+}
+
+/* .grid.grid-cols-4 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Adjust as needed */
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .grid.grid-cols-6 {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* Adjust as needed */
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .grid.grid-cols-8 {
   display: grid;
-  grid-template-columns: repeat(8, 1fr); /* Adjust as needed */
+  grid-template-columns: repeat(8, 1fr);
 }
 
 .grid.grid-cols-10 {
   display: grid;
-  grid-template-columns: repeat(10, 1fr); /* Adjust as needed */
+  grid-template-columns: repeat(10, 1fr);
 }
 
 .grid.grid-cols-11 {
   display: grid;
-  grid-template-columns: repeat(11, 1fr); /* Adjust as needed */
+  grid-template-columns: repeat(11, 1fr);
 }
 
 .grid.grid-cols-12 {
   display: grid;
-  grid-template-columns: repeat(12, 1fr); /* Adjust as needed */
+  grid-template-columns: repeat(12, 1fr);
 }
 
 .grid.grid-cols-13 {
   display: grid;
-  grid-template-columns: repeat(13, 1fr); /* Adjust as needed */
-}
+  grid-template-columns: repeat(13, 1fr);
+} */
 
 /* Table Headers */
 .table .header-cell div {
@@ -661,6 +670,9 @@ button.supabase-auth-ui_ui-button.c-bOcPnF.c-bOcPnF-cmFMMs-color-primary:hover {
 .news-updates {
   padding: 20px; /* Adjust as needed */
 }
+
+/* Add additional rules or modify these based on your specific layout and design needs */
+
 
 /* Widgets */
 

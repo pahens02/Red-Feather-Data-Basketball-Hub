@@ -42,15 +42,23 @@ const NavBar: React.FC<NavBarProps> = ({ user }) => {
                 <Link href="/stats/nutrition">Nutrition</Link>
                 </div>
           </div>
-          <h2><Link className="hover:text-[var(--custom-color-hover)]" href="/analytics">Analytics</Link></h2>
+          <div className="dropdown">
+                <h2><Link className="hover:text-[var(--custom-color-hover)]" href="#">Analytics</Link></h2>
+                <div className="dropdown-content">
+                <Link href="/analytics/practice">Practice</Link>
+                <Link href="/analytics/games">Games</Link>
+                <Link href="/analytics/players">Player Comparison</Link>
+                </div>
+          </div>
           <h2><Link className="hover:text-[var(--custom-color-hover)]" href="/Guidelines">Guidelines</Link></h2>
           <div className="dropdown">
-                <h2><Link className="hover:text-[var(--custom-color-hover)]" href="#">Quick Links</Link></h2>
+                <h2><Link className="hover:text-[var(--custom-color-hover)]" href="#">Links</Link></h2>
                 <div className="dropdown-content">
                 <Link href="https://sportshub.keemotion.com/">Sportshub</Link>
                 <Link href="https://mbball.justplayss.com/admin/">JustPlay</Link>
                 <Link href="https://smartabase.com/">Smartbase</Link>
                 <Link href="https://darimotion.com/">DARI</Link>
+                <Link href="https://www.youtube.com/@gocards">Game Recaps</Link>
                 </div>
           </div>
         </div>
