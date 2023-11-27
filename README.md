@@ -1,85 +1,28 @@
-## Prerequisites
+## Introduction
 
-Git: If you don't have Git installed, visit the official website and follow the installation instructions for your operating system.
+Hello! This is the github repository for Red Feather Data's CIS 420 Development Project. The goal of this project is to develop a full stack web service for the UofL Mens Basketball analytics team that meets these [techincal requirements](https://docs.google.com/spreadsheets/d/1JsVDakPTIy_k1GFxilD5V8ojPqydFAxB/edit?usp=sharing&ouid=104459109147008004719&rtpof=true&sd=true). 
 
-Node.js: This project requires Node.js. If you don't have it installed, you can download it from nodejs.org.
+## Members of the Project
+- Paige Hensley
+- Brandon Mattingly
+- Shane Peterson
+- Prince Chenou
+- Adi Selimovic
 
-## Steps to Run the Project
-1. **Clone the GitHub Repository**
-    
-    - Open your terminal (or command prompt on Windows).
+## Our Deployment
+[Hosted on Vercel](https://red-feather-data-basketball-hub.vercel.app/)
 
-    - Navigate to the directory where you want to clone the repository. For example, if you want to clone it into a directory named "projects", you can use: 
-    
-        `cd path/to/projects`
+### Web Pages
 
-    - Clone the repository by using the following command:
-    
-        `git clone [REPOSITORY_URL]`
-    
-        Replace *[REPOSITORY_URL]* with the actual URL of the GitHub repository. For example, if the repository URL is https://github.com/username/projectname.git , then the command becomes:
+Check out the [`/screenshots/webpages`](./screenshots/webpages) folder for examples of our webpages.
 
-        `git clone https://github.com/username/projectname.git`
+## Supabase
 
-2. **Navigate to the Project Directory**
+And check out the [`/screenshots/supabase`](./screenshots/supabase) folder for examples of our Database Schemas.
 
-    Once you've cloned the repository, navigate to the project directory:
+## Class Description
+Prerequisite(s): [CIS 310](https://catalog.louisville.edu/search/?P=CIS%20310), [CIS 320](https://catalog.louisville.edu/search/?P=CIS%20320) and [CIS 350](https://catalog.louisville.edu/search/?P=CIS%20350).
 
-    `cd projectname`
+Description: A continuation of CIS 320, this course focuses on the detailed design and implementation phases of the system development life cycle, including user acceptance testing, test planning, design reviews, and change procedures. Specifications created in CIS 320 are used to implement, test, and install a working version of an information system. System deployment emphasizes a web-based architecture. A prototyping approach is taken to develop and test the system in an iterative manner. Students are grouped into project teams, and each team member accepts task assignments necessary to deliver the information system prototype.
 
-    Replace *projectname* with the name of the directory that was created when you cloned the repository.
-
-
-3. **Install the Dependencies**
-
-    Before you can run the Next.js app, you need to install its dependencies. In the terminal, make sure you are inside the project directory and run:
-
-    `npm install`
-
-4. **Run the Development Server**
-
-    With all dependencies installed, you can now start the development server:
-
-    `npm run dev`
-
-    Once the command completes, it should indicate that the server is running, usually with a message like:
-
-        ready - started server on http://localhost:3000
-
-5. **Access the App in Your Browser**
-    
-    Open your preferred web browser and navigate to:
-
-    http://localhost:3000
-
-    You should see the Next.js app running!
-
-## Deploy your own
-
-The Vercel deployment will guide you through creating a Supabase account and project. After installation of the Supabase integration, all relevant environment variables will be set up so that the project is usable immediately after deployment 🚀
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-supabase&project-name=nextjs-with-supabase&repository-name=nextjs-with-supabase&integration-ids=oac_jUduyjQgOyzev1fjrW83NYOv)
-
-## How to use
-
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
-
-### Create a Supabase client
-
-Check out the [`/app/_examples`](./app/_examples/) folder for an example of creating a Supabase client in:
-
-- [Client Components](./app/_examples/client-component/page.tsx)
-- [Server Components](./app/_examples/server-component/page.tsx)
-- [Route Handlers](./app/_examples/route-handler/route.ts)
-- [Server Actions](./app/_examples/server-action/page.tsx)
-
-## Feedback and issues
-
-Please file feedback and issues over on the [Supabase GitHub org](https://github.com/supabase/supabase/issues/new/choose).
-
-## More Supabase examples
-
-- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
-- [Cookie-based Auth and the Next.js 13 App Router (free course)](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
-- [Supabase Auth and the Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
-- [Next.js Auth Helpers Docs](https://supabase.com/docs/guides/auth/auth-helpers/nextjs)
+Course Attribute(s): CBL - This course includes Community-Based Learning (CBL). Students will engage in a community experience or project with an external partner in order to enhance understanding and application of academic content.
