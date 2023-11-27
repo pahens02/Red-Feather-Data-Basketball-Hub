@@ -1,9 +1,9 @@
-import '../globals.css';
+import '../../globals.css';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import AnalyticsClient from '../components/AnalyticsClient';
+import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
+import AnalyticsClient from '../../components/PracticeAnalyticsClient';
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'

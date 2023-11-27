@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import Select, { SingleValue, MultiValue, ActionMeta } from 'react-select';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { ResponsiveContainer } from 'recharts';
+
 
 interface AnalyticsPracticeStat {
     practice_id: number;
@@ -62,12 +64,25 @@ interface ColorMapping {
 
 export default function PlayerAnalyticsGraph({ analytics }: AnalyticsStatsProps) {
     const [selectedPlayers, setSelectedPlayers] = useState<PlayerOption[]>([]);
+    const [uniquePlayerOptions, setUniquePlayerOptions] = useState<PlayerOption[]>([]);
     const [combinedData, setCombinedData] = useState<ChartData[]>([]);
 
     const [selectedStat, setSelectedStat] = useState<string>('points_scored');
     const [selectedTeamStat, setSelectedTeamStat] = useState<string>('team_average_points');
 
     useEffect(() => {
+
+        const generatedPlayerOptions = Array.from(new Set(analytics.map(stat => stat.player_id)))
+          .map(player_id => {
+            const player = analytics.find(stat => stat.player_id === player_id);
+            return {
+              value: player_id,
+              label: player ? player.full_name : 'Unknown Player'
+            };
+          });
+
+        setUniquePlayerOptions(generatedPlayerOptions);
+
         const data: ChartData[] = analytics.map(stat => {
             const playerScores: PlayerScores = {};
             selectedPlayers.forEach(player => {
@@ -86,7 +101,7 @@ export default function PlayerAnalyticsGraph({ analytics }: AnalyticsStatsProps)
         }).filter(stat => selectedPlayers.some(player => stat.playerScores[player.label] !== undefined));
 
         setCombinedData(data);
-    }, [selectedPlayers, selectedStat, selectedTeamStat, analytics]);
+    }, [analytics, selectedPlayers, selectedStat, selectedTeamStat]);
 
     const statOptions = [
         { value: 'points_scored', label: 'Points Scored' },
@@ -151,15 +166,15 @@ export default function PlayerAnalyticsGraph({ analytics }: AnalyticsStatsProps)
 
     return (
         <div>
-            <h1 className="text-lg font-bold text-center">Player Stats Comparison</h1>
+            <h1 className="text-lg font-bold text-center">Practice Stats Comparison</h1>
             <h3>Player:</h3>
             <Select
-                options={playerOptions}
+                options={uniquePlayerOptions}
                 onChange={handleSelectChange}
                 isMulti
             />
             <div className='pb-2'></div>
-            <h3>Stat:</h3>
+            <h3>Player Stat:</h3>
             <Select
                 options={statOptions}
                 onChange={handleStatChange}
@@ -172,7 +187,8 @@ export default function PlayerAnalyticsGraph({ analytics }: AnalyticsStatsProps)
             />
             <div className='pb-2'></div>
             <div className='pb-4'>
-                <LineChart width={1500} height={800} data={combinedData}
+            <ResponsiveContainer width="100%" height={800}>
+                <LineChart data={combinedData}
                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="practice_date" />
@@ -198,7 +214,8 @@ export default function PlayerAnalyticsGraph({ analytics }: AnalyticsStatsProps)
                         connectNulls={true}
                     />
                 </LineChart>
-            </div>
+            </ResponsiveContainer>
         </div>
+    </div>
     );
 }
